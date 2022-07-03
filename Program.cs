@@ -1,75 +1,141 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SalaryCalculation
+namespace ElectricBill
+
+
 {
-    class SalarySlip
-    {
-        int fuel, medical, total=0;
-        int basic_salary = 1500;
-
-        void engineer()
+        class residential
         {
-            fuel = 100;
-            medical = 500;
-            total = basic_salary + fuel + medical;
-            Console.WriteLine("\n\nYour Total Salary with fuel and medical allowncess:\n\n" + total);
-        }
-        void manager()
-        {
-            fuel = 250;
-            medical = 1000;
-            total = basic_salary + fuel + medical;
-            Console.WriteLine("\n\nYour Total Salary with fuel and medical allowncess:\n\n" + total);
-        }
-        void analyst()
-        {
-            fuel = 150;
-            medical = 800;
-            total = basic_salary + fuel + medical;
-            Console.WriteLine("\n\nYour Total Salary with fuel and medical allowncess:\n\n" + total);
-        }
+            public float original_bill, taxes, total_bill;
 
-        static void Main(string[] args)
-
-        {
-            int basic_salary = 1500;
-
-            SalarySlip salarySlip = new SalarySlip();
-
-            Console.WriteLine("Enter Your Designation\n 1: Engineer \n 2: Manager \n 3: Analyst \n");
-            string designation = Console.ReadLine();
-
-            Console.WriteLine("\n\nYour Designation is in this Company:\n\n" + designation + "\n\nAnd Your Basic Salary is:\n\n" + basic_salary);
-
-            if (designation == "engineer" || designation == "1")
+            public void resident()
             {
-                salarySlip.engineer();
+                Console.WriteLine("\n\n Enter your this month units: \n\n");
+                float units = float.Parse(Console.ReadLine());
+                Console.WriteLine("\n\n Your this month units are: \n\n" + units);
+
+                if (units > 0 && units <= 100)
+                {
+                    original_bill = units * 5;
+                    Console.WriteLine("\n\n Your monthly bill is: \n\n" + original_bill);
+                    taxes = original_bill * 13 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else if (units > 100 && units <= 200)
+                {
+                    original_bill = units * 17;
+                    Console.WriteLine("\n\n Your today month bill is: \n\n" + original_bill);
+                    taxes = original_bill * 13 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else if (units > 200 && units <= 500)
+                {
+                    original_bill = units * 23;
+                    Console.WriteLine("\n\n Your today month bill is: \n\n" + original_bill);
+                    taxes = original_bill * 13 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else if (units > 500)
+                {
+                    original_bill = units * 69;
+                    Console.WriteLine("\n\n Your today month bill is: \n\n" + original_bill);
+                    taxes = original_bill * 13 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else
+                {
+                    Console.WriteLine("\n\n You are Entering Wrong Units:");
+
+                }
+
             }
-            else if (designation == "manager" || designation == "2")
+        }
+
+        class commercial
+        {
+            public float original_bill, taxes, total_bill;
+            public void commer()
             {
-                salarySlip.manager();
+                Console.WriteLine("\n\n Enter your this month units: \n\n");
+                float units = float.Parse(Console.ReadLine());
+                Console.WriteLine("\n\n Your this month units are: \n\n" + units);
+
+                if (units > 0 && units <= 100)
+                {
+                    original_bill = units * 8;
+                    Console.WriteLine("\n\n Your today month bill is: \n\n" + original_bill);
+                    taxes = original_bill * 17 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else if (units > 100 && units <= 200)
+                {
+                    original_bill = units * 21;
+                    Console.WriteLine("\n\n Your today month bill is: \n\n" + original_bill);
+                    taxes = original_bill * 17 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else if (units > 200 && units <= 500)
+                {
+                    original_bill = units * 23;
+                    Console.WriteLine("\n\n Your today month bill is: \n\n" + original_bill);
+                    taxes = original_bill * 17 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else if (units > 500)
+                {
+                    original_bill = units * 79;
+                    Console.WriteLine("\n\n Your today month bill is: \n\n" + original_bill);
+                    taxes = original_bill * 17 / 100;
+                    Console.WriteLine("\n\n Your bill with taxes: \n\n" + taxes);
+                    total_bill = original_bill + taxes;
+                    Console.WriteLine("\n\n Your total bill of this month is: \n\n" + total_bill);
+                }
+                else
+                {
+                    Console.WriteLine("\n\n You are Entering Wrong Units:");
+
+                }
             }
-            else if (designation == "analyst" || designation == "3")
+        }
+        
+    class Electricity_Bill
+    { 
+
+        static void Main (string[] args)
+        {
+            residential res = new residential();
+            commercial com = new commercial();
+            Console.WriteLine("\n\n Enter your Bill location:\n 1: Residential \n 2: Commercial \n\n");
+            string location = Console.ReadLine();
+            Console.WriteLine("\n\n Your Bill location is: \n\n" + location);
+
+            if(location=="resident")
             {
-                salarySlip.analyst();
+                res.resident();
+            }
+            else if(location == "commercial")
+            {
+                com.commer();
             }
             else
             {
-                Console.WriteLine("Your designation does not match with the current designations list.");
+                Console.WriteLine("\n\n Your Billing location does not match.");
             }
-
-
         }
-
-
-       
-
-
     }
-
 
 }
